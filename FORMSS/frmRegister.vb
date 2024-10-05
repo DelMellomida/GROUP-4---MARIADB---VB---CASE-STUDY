@@ -55,6 +55,12 @@ Public Class frmRegister
         End Try
     End Sub
 
+    Private Sub lblLogin_Click(sender As Object, e As EventArgs) Handles lblLogin.Click
+        Dim loginForm As New frmLOGIN()
+        loginForm.Show()
+        Me.Hide()
+    End Sub
+
     Private Function HashPassword(password As String) As String
         Using sha256 As SHA256 = SHA256.Create()
             Dim bytes As Byte() = Encoding.UTF8.GetBytes(password)

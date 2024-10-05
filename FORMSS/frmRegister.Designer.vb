@@ -104,11 +104,11 @@ Partial Class frmRegister
         '
         Me.lblTitle.AutoSize = True
         Me.lblTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitle.Location = New System.Drawing.Point(113, 32)
+        Me.lblTitle.Location = New System.Drawing.Point(132, 31)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(159, 25)
+        Me.lblTitle.Size = New System.Drawing.Size(127, 25)
         Me.lblTitle.TabIndex = 5
-        Me.lblTitle.Text = "Welcome back!"
+        Me.lblTitle.Text = "Hello Admin"
         Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'btnRegister
