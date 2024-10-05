@@ -1,0 +1,81 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+GROUP 4 - MARIADB - VB - CASE STUDY
+</name>
+</assembly>
+<members>
+<member name="T:GROUP_4___MARIADB___VB___CASE_STUDY.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:GROUP_4___MARIADB___VB___CASE_STUDY.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:GROUP_4___MARIADB___VB___CASE_STUDY.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:GROUP_4___MARIADB___VB___CASE_STUDY.My.Resources.Resources._12">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:GROUP_4___MARIADB___VB___CASE_STUDY.My.Resources.Resources._121">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:GROUP_4___MARIADB___VB___CASE_STUDY.My.Resources.Resources._13">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:GROUP_4___MARIADB___VB___CASE_STUDY.My.Resources.Resources._131">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:GROUP_4___MARIADB___VB___CASE_STUDY.My.Resources.Resources._14">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:GROUP_4___MARIADB___VB___CASE_STUDY.My.Resources.Resources._141">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:GROUP_4___MARIADB___VB___CASE_STUDY.My.Resources.Resources.hotel">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:GROUP_4___MARIADB___VB___CASE_STUDY.My.Resources.Resources.hotel__1__removebg_preview">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:GROUP_4___MARIADB___VB___CASE_STUDY.My.Resources.Resources.hotel__2_">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:GROUP_4___MARIADB___VB___CASE_STUDY.My.Resources.Resources.hotel__4__removebg_preview">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:GROUP_4___MARIADB___VB___CASE_STUDY.My.Resources.Resources.hotel__5_">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+</members>
+</doc>
