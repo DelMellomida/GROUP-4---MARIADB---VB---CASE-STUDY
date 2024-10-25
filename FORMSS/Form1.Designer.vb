@@ -23,19 +23,19 @@ Partial Class frmVerification
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnResend = New System.Windows.Forms.Button()
         Me.lblRegister = New System.Windows.Forms.Label()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.btnLogin = New System.Windows.Forms.Button()
         Me.txtCode = New System.Windows.Forms.TextBox()
         Me.lblVerification = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.SandyBrown
-        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.btnResend)
         Me.GroupBox1.Controls.Add(Me.lblRegister)
         Me.GroupBox1.Controls.Add(Me.lblTitle)
         Me.GroupBox1.Controls.Add(Me.btnLogin)
@@ -46,6 +46,15 @@ Partial Class frmVerification
         Me.GroupBox1.Size = New System.Drawing.Size(385, 256)
         Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
+        '
+        'btnResend
+        '
+        Me.btnResend.Location = New System.Drawing.Point(109, 213)
+        Me.btnResend.Name = "btnResend"
+        Me.btnResend.Size = New System.Drawing.Size(173, 23)
+        Me.btnResend.TabIndex = 7
+        Me.btnResend.Text = "Resend"
+        Me.btnResend.UseVisualStyleBackColor = True
         '
         'lblRegister
         '
@@ -93,15 +102,6 @@ Partial Class frmVerification
         Me.lblVerification.Text = "Verification Code"
         Me.lblVerification.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(109, 213)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(173, 23)
-        Me.Button1.TabIndex = 7
-        Me.Button1.Text = "Resend"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'frmVerification
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -122,5 +122,5 @@ Partial Class frmVerification
     Friend WithEvents btnLogin As Button
     Friend WithEvents txtCode As TextBox
     Friend WithEvents lblVerification As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnResend As Button
 End Class

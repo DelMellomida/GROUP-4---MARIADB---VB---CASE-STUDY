@@ -1,10 +1,16 @@
 ﻿Imports System.Security.Cryptography
 Imports System.Net
 Imports System.Net.Mail
+Imports MySql.Data.MySqlClient
 
 Public Class frmVerification
+    Dim con As New MySqlConnection("server=localhost;user=root;password=;database=cs_hotel_reservation;convert zero datetime=true")
+    Dim cmd As New MySqlCommand
+    Dim dt As New DataTable
+    Dim da As New MySqlDataAdapter
     Private _email As String
     Private _code As String
+    Dim sql As String
 
     Public Sub New(email As String, code As String)
         InitializeComponent()
@@ -12,12 +18,24 @@ Public Class frmVerification
         _code = code
     End Sub
 
-    Private Sub btnResend_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        EmailVerification()
-    End Sub
-
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
         If _code = txtCode.Text Then
+            Try
+                con.Open()
+                sql = "UPDATE users SET isVerified = @isVerified WHERE email = @Email"
+                cmd = New MySqlCommand(sql, con)
+
+                cmd.Parameters.AddWithValue("@isVerified", 1)
+                cmd.Parameters.AddWithValue("@email", _email)
+                cmd.ExecuteNonQuery()
+
+                MessageBox.Show("Verification successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Catch ex As Exception
+                MessageBox.Show("An error occurred: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Finally
+                con.Close()
+            End Try
+
             Dim summaryForm As New MAIN()
             summaryForm.Show()
             Me.Hide()
@@ -59,4 +77,8 @@ Public Class frmVerification
             Return BitConverter.ToUInt32(randomNumber, 0) Mod 900000 + 100000
         End Using
     End Function
+
+    Private Sub btnResend_Click_1(sender As Object, e As EventArgs) Handles btnResend.Click
+        EmailVerification()
+    End Sub
 End Class
