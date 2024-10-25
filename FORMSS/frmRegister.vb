@@ -12,7 +12,6 @@ Public Class frmRegister
     Public code As String
     Dim sql, btnClick As String
 
-
     Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
         Dim name As String = txtName.Text
         Dim username As String = txtUname.Text
@@ -53,7 +52,6 @@ Public Class frmRegister
 
                 EmailVerification()
 
-                ' Clear fields
                 txtName.Clear()
                 txtUname.Clear()
                 txtPassword.Clear()
