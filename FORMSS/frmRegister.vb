@@ -4,13 +4,14 @@ Imports System.Text
 Imports System.Net
 Imports System.Net.Mail
 
-
 Public Class frmRegister
     Dim con As New MySqlConnection("server=localhost;user=root;password=;database=cs_hotel_reservation;convert zero datetime=true")
     Dim cmd As New MySqlCommand
     Dim dt As New DataTable
     Dim da As New MySqlDataAdapter
+    Public code As String
     Dim sql, btnClick As String
+
 
     Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
         Dim name As String = txtName.Text
@@ -33,15 +34,11 @@ Public Class frmRegister
         Dim passwordValidity = ValidatePassword(password)
 
         If passwordValidity = "Password is valid." Then
-
             Dim hashedPassword As String = HashPassword(password)
 
             Try
-
                 con.Open()
-
                 sql = "INSERT INTO users (name, username, password, email, role, created_at) VALUES (@name, @username, @password, @email, @role, NOW())"
-
                 cmd = New MySqlCommand(sql, con)
 
                 cmd.Parameters.AddWithValue("@name", name)
@@ -52,8 +49,11 @@ Public Class frmRegister
 
                 cmd.ExecuteNonQuery()
 
-                MessageBox.Show("Registration successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Registration successful! A verification email has been sent.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
+                EmailVerification()
+
+                ' Clear fields
                 txtName.Clear()
                 txtUname.Clear()
                 txtPassword.Clear()
@@ -62,13 +62,17 @@ Public Class frmRegister
                 cmbRole.SelectedIndex = -1
                 txtPassword.Focus()
 
+                Dim verificationForm As New frmVerification(email, code)
+                verificationForm.Show()
+                Me.Hide()
+
             Catch ex As MySqlException
                 MessageBox.Show("An error occurred: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Finally
                 con.Close()
             End Try
         Else
-            MessageBox.Show("Somethign")
+            MessageBox.Show(passwordValidity, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
 
@@ -79,25 +83,14 @@ Public Class frmRegister
     End Sub
 
     Private Function HashPassword(password As String) As String
-        Using sha256 As SHA256 = SHA256.Create()
-            Dim bytes As Byte() = Encoding.UTF8.GetBytes(password)
-
-            Dim hashBytes As Byte() = sha256.ComputeHash(bytes)
-
-            Dim hashedPassword As New StringBuilder()
-
-            For Each b As Byte In hashBytes
-                hashedPassword.Append(b.ToString("x2"))
-            Next
-
-            Return hashedPassword.ToString()
+        Using pbkdf2 As New Rfc2898DeriveBytes(password, 16, 100000)
+            Return Convert.ToBase64String(pbkdf2.GetBytes(20))
         End Using
     End Function
 
     Private Sub txtPassword_TextChanged(sender As Object, e As EventArgs) Handles txtPassword.TextChanged
         Dim password As String = txtPassword.Text
         Dim validationResult As String = ValidatePassword(password)
-
         lblError.Text = validationResult
     End Sub
 
@@ -132,5 +125,37 @@ Public Class frmRegister
         End If
     End Function
 
+    Public Sub EmailVerification()
+        Dim fromAddress As New MailAddress("noreply@hotelluna.com", "Hotel de Luna Verification")
+        Dim toAddress As New MailAddress(txtEmail.Text)
+        code = GenerateCode()
+        Dim subject As String = "Verify your email"
+        Dim body As String = $"Your verification code is {code}. It will expire in 10 minutes."
 
+        Dim smtpUsername As String = "69420jhomello@gmail.com"
+        Dim smtpPassword As String = "cjos bidx etll jpfe"
+
+        Try
+            Using smtp As New SmtpClient("smtp.gmail.com", 587)
+                smtp.Credentials = New NetworkCredential(smtpUsername, smtpPassword)
+                smtp.EnableSsl = True
+
+                Using message As New MailMessage(fromAddress, toAddress)
+                    message.Subject = subject
+                    message.Body = body
+                    smtp.Send(message)
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error in sending verification code: " & ex.Message)
+        End Try
+    End Sub
+
+    Private Function GenerateCode() As String
+        Using rng As New RNGCryptoServiceProvider()
+            Dim randomNumber(5) As Byte
+            rng.GetBytes(randomNumber)
+            Return BitConverter.ToUInt32(randomNumber, 0) Mod 900000 + 100000 ' Generates a 6-digit number
+        End Using
+    End Function
 End Class

@@ -96,3 +96,4 @@ C:\Users\acer\source\repos\GROUP 4 - MARIADB - VB - CASE STUDY\GROUP 4 - MARIADB
 C:\Users\acer\source\repos\GROUP 4 - MARIADB - VB - CASE STUDY\GROUP 4 - MARIADB - VB - CASE STUDY\obj\Debug\GROUP 4 - MARIADB - VB - CASE STUDY.pdb
 C:\Users\acer\source\repos\GROUP 4 - MARIADB - VB - CASE STUDY\GROUP 4 - MARIADB - VB - CASE STUDY\obj\Debug\GROUP_4___MARIADB___VB___CASE_STUDY.frmLOGIN.resources
 C:\Users\acer\source\repos\GROUP 4 - MARIADB - VB - CASE STUDY\GROUP 4 - MARIADB - VB - CASE STUDY\obj\Debug\GROUP_4___MARIADB___VB___CASE_STUDY.frmRegister.resources
+C:\Users\acer\source\repos\GROUP 4 - MARIADB - VB - CASE STUDY\GROUP 4 - MARIADB - VB - CASE STUDY\obj\Debug\GROUP_4___MARIADB___VB___CASE_STUDY.frmVerification.resources
