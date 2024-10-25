@@ -155,7 +155,7 @@ Public Class frmRegister
         Using rng As New RNGCryptoServiceProvider()
             Dim randomNumber(5) As Byte
             rng.GetBytes(randomNumber)
-            Return BitConverter.ToUInt32(randomNumber, 0) Mod 900000 + 100000 ' Generates a 6-digit number
+            Return BitConverter.ToUInt32(randomNumber, 0) Mod 900000 + 100000
         End Using
     End Function
 End Class
