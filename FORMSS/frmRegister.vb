@@ -81,8 +81,18 @@ Public Class frmRegister
     End Sub
 
     Private Function HashPassword(password As String) As String
-        Using pbkdf2 As New Rfc2898DeriveBytes(password, 16, 100000)
-            Return Convert.ToBase64String(pbkdf2.GetBytes(20))
+        Using sha256 As SHA256 = SHA256.Create()
+            Dim bytes As Byte() = Encoding.UTF8.GetBytes(password)
+
+            Dim hashBytes As Byte() = sha256.ComputeHash(bytes)
+
+            Dim hashedPassword As New StringBuilder()
+
+            For Each b As Byte In hashBytes
+                hashedPassword.Append(b.ToString("x2"))
+            Next
+
+            Return hashedPassword.ToString()
         End Using
     End Function
 
