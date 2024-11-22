@@ -60,7 +60,7 @@ Public Class frmRegister
                 cmbRole.SelectedIndex = -1
                 txtPassword.Focus()
 
-                Dim verificationForm As New frmVerification(email, code)
+                Dim verificationForm As New frmVerification(email, code, username)
                 verificationForm.Show()
                 Me.Hide()
 

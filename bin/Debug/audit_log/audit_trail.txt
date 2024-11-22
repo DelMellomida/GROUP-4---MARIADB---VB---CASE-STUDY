@@ -1,0 +1,5 @@
+2024-11-23 04:55:59 | User: del | Action: Successful login
+2024-11-23 05:12:08 | User: del | Action: Successful login
+2024-11-23 05:18:26 | User: del | Action: Successful login
+2024-11-23 05:18:37 | User: del | Action: Deleted hotel: JDOE, ID: 12
+2024-11-23 05:52:59 | User: del | Action: Successful login

@@ -5,6 +5,12 @@ Public Class frmGuest
     Dim dt As New DataTable
     Dim da As New MySqlDataAdapter
     Dim sql, x, btnClick As String
+    Private _username As String
+
+    Public Sub New(username As String)
+        InitializeComponent()
+        _username = username
+    End Sub
     Private Sub frmGuest_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadTheme()
         btnFalse()
@@ -39,6 +45,8 @@ Public Class frmGuest
                 Refresh()
                 con.Close()
                 btnTrue()
+
+                WriteToAuditTrail(_username, $"Deleted guest: {txtName.Text}, Guest ID: {txtID.Text}")
             End If
             con.Close()
         Catch ex As Exception
@@ -74,6 +82,8 @@ Public Class frmGuest
                 cmd.CommandType = CommandType.Text
                 x = cmd.ExecuteNonQuery
                 con.Close()
+
+                WriteToAuditTrail(_username, $"Started adding new guest: {txtName.Text}")
             ElseIf btnClick = "Edit" Then
                 txtID.ReadOnly = True
                 con.Open()
@@ -84,6 +94,8 @@ Public Class frmGuest
                 x = cmd.ExecuteNonQuery
                 con.Close()
                 txtID.ReadOnly = False
+
+                WriteToAuditTrail(_username, $"Started editing guest: {txtName.Text}")
             End If
             frmGuest_Load(sender, e)
             txtEmpty()
@@ -196,5 +208,20 @@ Public Class frmGuest
                 btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor
             End If
         Next
+    End Sub
+
+    Public Sub WriteToAuditTrail(username As String, action As String)
+        Dim logPath As String = "audit_log/audit_trail.txt"
+        Dim logMessage As String = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} | User: {username} | Action: {action}"
+
+        Try
+            If Not IO.Directory.Exists("audit_log") Then
+                IO.Directory.CreateDirectory("audit_log")
+            End If
+
+            IO.File.AppendAllText(logPath, logMessage & Environment.NewLine)
+        Catch ex As Exception
+            MessageBox.Show($"Error writing to audit trail: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 End Class

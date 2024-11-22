@@ -72,8 +72,7 @@ Partial Class frmHotel
         Me.dgvDisplay.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvDisplay.ColumnHeadersHeight = 40
         Me.dgvDisplay.EnableHeadersVisualStyles = False
-        Me.dgvDisplay.Location = New System.Drawing.Point(545, 78)
-        Me.dgvDisplay.Margin = New System.Windows.Forms.Padding(4)
+        Me.dgvDisplay.Location = New System.Drawing.Point(409, 63)
         Me.dgvDisplay.Name = "dgvDisplay"
         Me.dgvDisplay.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -87,66 +86,60 @@ Partial Class frmHotel
         Me.dgvDisplay.RowHeadersWidth = 51
         Me.dgvDisplay.RowTemplate.Height = 25
         Me.dgvDisplay.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvDisplay.Size = New System.Drawing.Size(961, 511)
+        Me.dgvDisplay.Size = New System.Drawing.Size(721, 415)
         Me.dgvDisplay.TabIndex = 1
         '
         'txtSearch
         '
         Me.txtSearch.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSearch.Location = New System.Drawing.Point(1213, 20)
-        Me.txtSearch.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtSearch.Location = New System.Drawing.Point(910, 16)
         Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(292, 36)
+        Me.txtSearch.Size = New System.Drawing.Size(220, 30)
         Me.txtSearch.TabIndex = 6
         '
         'btnSearch
         '
         Me.btnSearch.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSearch.Location = New System.Drawing.Point(1013, 22)
-        Me.btnSearch.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnSearch.Location = New System.Drawing.Point(760, 18)
         Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(192, 39)
+        Me.btnSearch.Size = New System.Drawing.Size(144, 32)
         Me.btnSearch.TabIndex = 5
         Me.btnSearch.Text = "Search"
         Me.btnSearch.UseVisualStyleBackColor = True
         '
         'btnRefresh
         '
-        Me.btnRefresh.Location = New System.Drawing.Point(545, 22)
-        Me.btnRefresh.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnRefresh.Location = New System.Drawing.Point(409, 18)
         Me.btnRefresh.Name = "btnRefresh"
-        Me.btnRefresh.Size = New System.Drawing.Size(192, 39)
+        Me.btnRefresh.Size = New System.Drawing.Size(144, 32)
         Me.btnRefresh.TabIndex = 4
         Me.btnRefresh.Text = "Refresh"
         Me.btnRefresh.UseVisualStyleBackColor = True
         '
         'btnAdd
         '
-        Me.btnAdd.Location = New System.Drawing.Point(33, 22)
-        Me.btnAdd.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnAdd.Location = New System.Drawing.Point(25, 18)
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(128, 39)
+        Me.btnAdd.Size = New System.Drawing.Size(96, 32)
         Me.btnAdd.TabIndex = 7
         Me.btnAdd.Text = "Add"
         Me.btnAdd.UseVisualStyleBackColor = True
         '
         'btnEdit
         '
-        Me.btnEdit.Location = New System.Drawing.Point(192, 22)
-        Me.btnEdit.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnEdit.Location = New System.Drawing.Point(144, 18)
         Me.btnEdit.Name = "btnEdit"
-        Me.btnEdit.Size = New System.Drawing.Size(128, 39)
+        Me.btnEdit.Size = New System.Drawing.Size(96, 32)
         Me.btnEdit.TabIndex = 8
         Me.btnEdit.Text = "Edit"
         Me.btnEdit.UseVisualStyleBackColor = True
         '
         'btnDelete
         '
-        Me.btnDelete.Location = New System.Drawing.Point(353, 22)
-        Me.btnDelete.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnDelete.Location = New System.Drawing.Point(265, 18)
         Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(128, 39)
+        Me.btnDelete.Size = New System.Drawing.Size(96, 32)
         Me.btnDelete.TabIndex = 9
         Me.btnDelete.Text = "Delete"
         Me.btnDelete.UseVisualStyleBackColor = True
@@ -156,10 +149,9 @@ Partial Class frmHotel
         Me.txtName.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtName.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtName.Location = New System.Drawing.Point(33, 129)
-        Me.txtName.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtName.Location = New System.Drawing.Point(25, 105)
         Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(480, 36)
+        Me.txtName.Size = New System.Drawing.Size(361, 30)
         Me.txtName.TabIndex = 10
         '
         'Label1
@@ -168,10 +160,9 @@ Partial Class frmHotel
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(27, 95)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(20, 77)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(86, 29)
+        Me.Label1.Size = New System.Drawing.Size(70, 25)
         Me.Label1.TabIndex = 15
         Me.Label1.Text = "NAME"
         '
@@ -181,10 +172,9 @@ Partial Class frmHotel
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(27, 185)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Location = New System.Drawing.Point(20, 150)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(78, 29)
+        Me.Label2.Size = New System.Drawing.Size(64, 25)
         Me.Label2.TabIndex = 17
         Me.Label2.Text = "TYPE"
         '
@@ -194,10 +184,9 @@ Partial Class frmHotel
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(27, 279)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label3.Location = New System.Drawing.Point(20, 227)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(135, 29)
+        Me.Label3.Size = New System.Drawing.Size(108, 25)
         Me.Label3.TabIndex = 19
         Me.Label3.Text = "ADDRESS"
         '
@@ -206,10 +195,9 @@ Partial Class frmHotel
         Me.txtAddress.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtAddress.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAddress.Location = New System.Drawing.Point(33, 314)
-        Me.txtAddress.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtAddress.Location = New System.Drawing.Point(25, 255)
         Me.txtAddress.Name = "txtAddress"
-        Me.txtAddress.Size = New System.Drawing.Size(480, 36)
+        Me.txtAddress.Size = New System.Drawing.Size(361, 30)
         Me.txtAddress.TabIndex = 18
         '
         'Label4
@@ -218,10 +206,9 @@ Partial Class frmHotel
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(27, 368)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Location = New System.Drawing.Point(20, 299)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(133, 29)
+        Me.Label4.Size = New System.Drawing.Size(112, 25)
         Me.Label4.TabIndex = 21
         Me.Label4.Text = "CONTACT"
         '
@@ -230,10 +217,9 @@ Partial Class frmHotel
         Me.txtContact.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtContact.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtContact.Location = New System.Drawing.Point(33, 402)
-        Me.txtContact.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtContact.Location = New System.Drawing.Point(25, 327)
         Me.txtContact.Name = "txtContact"
-        Me.txtContact.Size = New System.Drawing.Size(480, 36)
+        Me.txtContact.Size = New System.Drawing.Size(361, 30)
         Me.txtContact.TabIndex = 20
         '
         'Label5
@@ -242,10 +228,9 @@ Partial Class frmHotel
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(27, 459)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label5.Location = New System.Drawing.Point(20, 373)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(88, 29)
+        Me.Label5.Size = New System.Drawing.Size(72, 25)
         Me.Label5.TabIndex = 23
         Me.Label5.Text = "EMAIL"
         '
@@ -254,19 +239,17 @@ Partial Class frmHotel
         Me.txtEmail.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.txtEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEmail.Location = New System.Drawing.Point(33, 494)
-        Me.txtEmail.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtEmail.Location = New System.Drawing.Point(25, 401)
         Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(480, 36)
+        Me.txtEmail.Size = New System.Drawing.Size(361, 30)
         Me.txtEmail.TabIndex = 22
         '
         'btnSave
         '
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnSave.Location = New System.Drawing.Point(33, 549)
-        Me.btnSave.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnSave.Location = New System.Drawing.Point(25, 446)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(128, 39)
+        Me.btnSave.Size = New System.Drawing.Size(96, 32)
         Me.btnSave.TabIndex = 24
         Me.btnSave.Text = "Save"
         Me.btnSave.UseVisualStyleBackColor = True
@@ -274,10 +257,9 @@ Partial Class frmHotel
         'btnCancel
         '
         Me.btnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnCancel.Location = New System.Drawing.Point(387, 549)
-        Me.btnCancel.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnCancel.Location = New System.Drawing.Point(290, 446)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(128, 39)
+        Me.btnCancel.Size = New System.Drawing.Size(96, 32)
         Me.btnCancel.TabIndex = 25
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
@@ -286,16 +268,17 @@ Partial Class frmHotel
         '
         Me.cmbType.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbType.FormattingEnabled = True
-        Me.cmbType.Location = New System.Drawing.Point(32, 217)
+        Me.cmbType.Location = New System.Drawing.Point(24, 176)
+        Me.cmbType.Margin = New System.Windows.Forms.Padding(2)
         Me.cmbType.Name = "cmbType"
-        Me.cmbType.Size = New System.Drawing.Size(481, 39)
+        Me.cmbType.Size = New System.Drawing.Size(362, 34)
         Me.cmbType.TabIndex = 26
         '
         'frmHotel
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1523, 603)
+        Me.ClientSize = New System.Drawing.Size(963, 490)
         Me.Controls.Add(Me.cmbType)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnSave)
@@ -315,7 +298,6 @@ Partial Class frmHotel
         Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.btnRefresh)
         Me.Controls.Add(Me.dgvDisplay)
-        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "frmHotel"
         Me.Text = "HOTEL"
         CType(Me.dgvDisplay, System.ComponentModel.ISupportInitialize).EndInit()

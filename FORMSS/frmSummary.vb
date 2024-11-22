@@ -5,10 +5,15 @@ Public Class frmSummary
     Dim dt As New DataTable
     Dim da As New MySqlDataAdapter
     Dim sql, x, btnClick As String
-    Dim frmg As New frmGuest
+    Dim frmg As New frmGuest(_username)
     Dim gid As String
     Dim provider As Globalization.CultureInfo = Globalization.CultureInfo.InvariantCulture
+    Private _username As String
 
+    Public Sub New(username As String)
+        InitializeComponent()
+        _username = username
+    End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         loadGuestID()
         allFalse()
@@ -195,5 +200,22 @@ Public Class frmSummary
         End Try
         Return exp
     End Function
+
+    Public Sub WriteToAuditTrail(username As String, action As String)
+        Dim logPath As String = "audit_log/audit_trail.txt"
+        Dim logMessage As String = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} | User: {username} | Action: {action}"
+
+        Try
+            If Not IO.Directory.Exists("audit_log") Then
+                IO.Directory.CreateDirectory("audit_log")
+            End If
+
+            MessageBox.Show($"Successful", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            IO.File.AppendAllText(logPath, logMessage & Environment.NewLine)
+        Catch ex As Exception
+            MessageBox.Show($"Error writing to audit trail: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
 End Class
 

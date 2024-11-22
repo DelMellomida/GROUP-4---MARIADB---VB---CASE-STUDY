@@ -23,6 +23,10 @@ Partial Class frmRegister
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.cmbRole = New System.Windows.Forms.ComboBox()
+        Me.txtEmail = New System.Windows.Forms.TextBox()
+        Me.lblEmail = New System.Windows.Forms.Label()
+        Me.lblRole = New System.Windows.Forms.Label()
         Me.lblError = New System.Windows.Forms.Label()
         Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.txtName = New System.Windows.Forms.TextBox()
@@ -36,10 +40,6 @@ Partial Class frmRegister
         Me.txtUname = New System.Windows.Forms.TextBox()
         Me.lblUsername = New System.Windows.Forms.Label()
         Me.lblCPassword = New System.Windows.Forms.Label()
-        Me.txtEmail = New System.Windows.Forms.TextBox()
-        Me.lblEmail = New System.Windows.Forms.Label()
-        Me.lblRole = New System.Windows.Forms.Label()
-        Me.cmbRole = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -68,6 +68,40 @@ Partial Class frmRegister
         Me.GroupBox1.Size = New System.Drawing.Size(515, 387)
         Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
+        '
+        'cmbRole
+        '
+        Me.cmbRole.FormattingEnabled = True
+        Me.cmbRole.Items.AddRange(New Object() {"admin", "cashier"})
+        Me.cmbRole.Location = New System.Drawing.Point(294, 136)
+        Me.cmbRole.Name = "cmbRole"
+        Me.cmbRole.Size = New System.Drawing.Size(173, 21)
+        Me.cmbRole.TabIndex = 17
+        '
+        'txtEmail
+        '
+        Me.txtEmail.Location = New System.Drawing.Point(60, 137)
+        Me.txtEmail.Name = "txtEmail"
+        Me.txtEmail.Size = New System.Drawing.Size(173, 20)
+        Me.txtEmail.TabIndex = 16
+        '
+        'lblEmail
+        '
+        Me.lblEmail.AutoSize = True
+        Me.lblEmail.Location = New System.Drawing.Point(57, 121)
+        Me.lblEmail.Name = "lblEmail"
+        Me.lblEmail.Size = New System.Drawing.Size(35, 13)
+        Me.lblEmail.TabIndex = 15
+        Me.lblEmail.Text = "Email:"
+        '
+        'lblRole
+        '
+        Me.lblRole.AutoSize = True
+        Me.lblRole.Location = New System.Drawing.Point(291, 121)
+        Me.lblRole.Name = "lblRole"
+        Me.lblRole.Size = New System.Drawing.Size(32, 13)
+        Me.lblRole.TabIndex = 13
+        Me.lblRole.Text = "Role:"
         '
         'lblError
         '
@@ -182,40 +216,6 @@ Partial Class frmRegister
         Me.lblCPassword.Size = New System.Drawing.Size(94, 13)
         Me.lblCPassword.TabIndex = 1
         Me.lblCPassword.Text = "Confirm Password:"
-        '
-        'txtEmail
-        '
-        Me.txtEmail.Location = New System.Drawing.Point(60, 137)
-        Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(173, 20)
-        Me.txtEmail.TabIndex = 16
-        '
-        'lblEmail
-        '
-        Me.lblEmail.AutoSize = True
-        Me.lblEmail.Location = New System.Drawing.Point(57, 121)
-        Me.lblEmail.Name = "lblEmail"
-        Me.lblEmail.Size = New System.Drawing.Size(35, 13)
-        Me.lblEmail.TabIndex = 15
-        Me.lblEmail.Text = "Email:"
-        '
-        'lblRole
-        '
-        Me.lblRole.AutoSize = True
-        Me.lblRole.Location = New System.Drawing.Point(291, 121)
-        Me.lblRole.Name = "lblRole"
-        Me.lblRole.Size = New System.Drawing.Size(32, 13)
-        Me.lblRole.TabIndex = 13
-        Me.lblRole.Text = "Role:"
-        '
-        'cmbRole
-        '
-        Me.cmbRole.FormattingEnabled = True
-        Me.cmbRole.Items.AddRange(New Object() {"admin", "cashier"})
-        Me.cmbRole.Location = New System.Drawing.Point(294, 136)
-        Me.cmbRole.Name = "cmbRole"
-        Me.cmbRole.Size = New System.Drawing.Size(173, 21)
-        Me.cmbRole.TabIndex = 17
         '
         'frmRegister
         '

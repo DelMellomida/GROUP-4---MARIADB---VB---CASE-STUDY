@@ -2,6 +2,7 @@
 Imports System.Net
 Imports System.Net.Mail
 Imports MySql.Data.MySqlClient
+Imports System.Timers
 
 Public Class frmVerification
     Dim con As New MySqlConnection("server=localhost;user=root;password=;database=cs_hotel_reservation;convert zero datetime=true")
@@ -10,12 +11,17 @@ Public Class frmVerification
     Dim da As New MySqlDataAdapter
     Private _email As String
     Private _code As String
+    Private _username As String
     Dim sql As String
+    Private resendTimer As Timer
+    Private codeGenerationTime As DateTime
 
-    Public Sub New(email As String, code As String)
+    Public Sub New(email As String, code As String, username As String)
         InitializeComponent()
         _email = email
         _code = code
+        _username = username
+        InitializeTimer()
     End Sub
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
@@ -36,7 +42,7 @@ Public Class frmVerification
                 con.Close()
             End Try
 
-            Dim summaryForm As New MAIN()
+            Dim summaryForm As New MAIN(_username)
             summaryForm.Show()
             Me.Hide()
         Else
@@ -68,6 +74,20 @@ Public Class frmVerification
         Catch ex As Exception
             MessageBox.Show("Error in sending verification code: " & ex.Message)
         End Try
+        codeGenerationTime = DateTime.Now
+    End Sub
+
+    Private Sub InitializeTimer()
+        resendTimer = New Timer(60000)
+        AddHandler resendTimer.Elapsed, AddressOf OnTimerElapsed
+        resendTimer.Start()
+    End Sub
+
+    Private Sub OnTimerElapsed(sender As Object, e As ElapsedEventArgs)
+        Dim elapsedTime As TimeSpan = DateTime.Now - codeGenerationTime
+        If elapsedTime.TotalMinutes >= 10 Then
+            EmailVerification()
+        End If
     End Sub
 
     Private Function GenerateCode() As String

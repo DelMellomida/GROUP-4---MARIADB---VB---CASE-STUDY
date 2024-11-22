@@ -10,10 +10,18 @@ Public Class frmLOGIN
     Dim da As New MySqlDataAdapter
 
     Private Sub lblRegister_Click(sender As Object, e As EventArgs) Handles lblRegister.Click
-        Dim registerForm As New frmRegister()
-        registerForm.Show()
-        Me.Hide()
+        Dim enteredCode As String = InputBox("Please enter the admin code to proceed with registration.", "Admin Code Required")
+
+        If enteredCode = "admin123" Then
+            Dim registerForm As New frmRegister()
+            registerForm.Show()
+            Me.Hide()
+        Else
+            MessageBox.Show("Invalid code. Access denied.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            WriteToAuditTrail("unknown", "Someone tried to access the register")
+        End If
     End Sub
+
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
         ' Get username and password from textboxes
@@ -47,7 +55,9 @@ Public Class frmLOGIN
                 cmd.Parameters.AddWithValue("@username", username)
                 cmd.ExecuteNonQuery()
 
-                Dim summaryForm As New MAIN()
+                WriteToAuditTrail(username, "Successful login")
+
+                Dim summaryForm As New MAIN(username)
                 summaryForm.Show()
                 Me.Hide()
 
@@ -76,4 +86,24 @@ Public Class frmLOGIN
             Return hashedPassword.ToString()
         End Using
     End Function
+
+    Public Sub WriteToAuditTrail(username As String, action As String)
+        Dim logPath As String = "audit_log/audit_trail.txt"
+        Dim logMessage As String = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} | User: {username} | Action: {action}"
+
+        Try
+            If Not IO.Directory.Exists("audit_log") Then
+                IO.Directory.CreateDirectory("audit_log")
+            End If
+
+            MessageBox.Show($"Successful", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            IO.File.AppendAllText(logPath, logMessage & Environment.NewLine)
+        Catch ex As Exception
+            MessageBox.Show($"Error writing to audit trail: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+
 End Class
+

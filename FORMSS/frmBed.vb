@@ -6,6 +6,11 @@ Public Class frmBed
     Dim da As New MySqlDataAdapter
     Dim sql, x, btnClick As String
     Dim id As Integer = 0
+    Private _username As String
+    Public Sub New(username As String)
+        InitializeComponent()
+        _username = username
+    End Sub
     Private Sub frmBed_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadTheme()
         btnFalse()
@@ -44,6 +49,8 @@ Public Class frmBed
                 Refresh()
                 con.Close()
                 btnTrue()
+
+                WriteToAuditTrail(_username, $"Deleted bed: {txtBed.Text}, Rate: {txtRate.Text}")
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -77,6 +84,8 @@ Public Class frmBed
                 cmd.CommandText = sql
                 cmd.CommandType = CommandType.Text
                 x = cmd.ExecuteNonQuery
+
+                WriteToAuditTrail(_username, $"Added new bed: {txtBed.Text}, Rate: {txtRate.Text}")
             ElseIf btnClick = "Edit" Then
                 con.Open()
                 sql = "Update item set bed_references = '" & txtBed.Text & "', bed_rate ='" & txtRate.Text & "' WHERE bed_references_id = " & id & ";"
@@ -84,6 +93,8 @@ Public Class frmBed
                 cmd.CommandText = sql
                 cmd.CommandType = CommandType.Text
                 x = cmd.ExecuteNonQuery
+
+                WriteToAuditTrail(_username, $"Edited bed: {txtBed.Text}, New Rate: {txtRate.Text}")
             End If
         Catch ex As Exception
 
@@ -173,5 +184,20 @@ Public Class frmBed
                 btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor
             End If
         Next
+    End Sub
+
+    Public Sub WriteToAuditTrail(username As String, action As String)
+        Dim logPath As String = "audit_log/audit_trail.txt"
+        Dim logMessage As String = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} | User: {username} | Action: {action}"
+
+        Try
+            If Not IO.Directory.Exists("audit_log") Then
+                IO.Directory.CreateDirectory("audit_log")
+            End If
+
+            IO.File.AppendAllText(logPath, logMessage & Environment.NewLine)
+        Catch ex As Exception
+            MessageBox.Show($"Error writing to audit trail: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 End Class

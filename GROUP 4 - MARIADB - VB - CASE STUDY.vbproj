@@ -83,11 +83,11 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="MAIN.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="MAIN.Designer.vb">
+      <DependentUpon>MAIN.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FORMSS\Form1.Designer.vb">
@@ -182,8 +182,8 @@
     <Compile Include="TMCOLOR.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="MAIN.resx">
+      <DependentUpon>MAIN.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORMSS\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
@@ -273,6 +273,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\hotel %285%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="audit_log\audit_trail.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
