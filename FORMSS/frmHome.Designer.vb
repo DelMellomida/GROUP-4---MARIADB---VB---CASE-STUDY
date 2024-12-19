@@ -32,21 +32,23 @@ Partial Class frmHome
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PictureBox1.Image = Global.GROUP_4___MARIADB___VB___CASE_STUDY.My.Resources.Resources.hotel__5_
-        Me.PictureBox1.Location = New System.Drawing.Point(13, 10)
+        Me.PictureBox1.Location = New System.Drawing.Point(17, 12)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(1122, 498)
+        Me.PictureBox1.Size = New System.Drawing.Size(1496, 613)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
         'frmHome
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1149, 522)
+        Me.ClientSize = New System.Drawing.Size(1532, 642)
         Me.Controls.Add(Me.PictureBox1)
         Me.ForeColor = System.Drawing.SystemColors.ControlDark
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmHome"
         Me.Text = "frmHome"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

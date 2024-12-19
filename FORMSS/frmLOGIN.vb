@@ -2,13 +2,15 @@
 Imports System.Security.Cryptography
 Imports System.Text
 Imports GROUP_4___MARIADB___VB___CASE_STUDY
+Imports System.Net.Mail
+Imports System.Net
 
 Public Class frmLOGIN
     Dim con As New MySqlConnection("server=localhost;user=root;password=;database=cs_hotel_reservation;convert zero datetime=true")
     Dim cmd As New MySqlCommand
     Dim dt As New DataTable
     Dim da As New MySqlDataAdapter
-
+    Dim sql As String
     Private Sub lblRegister_Click(sender As Object, e As EventArgs) Handles lblRegister.Click
         Dim enteredCode As String = InputBox("Please enter the admin code to proceed with registration.", "Admin Code Required")
 
@@ -36,7 +38,6 @@ Public Class frmLOGIN
 
         ' Hash the password
         Dim hashedPassword As String = HashPassword(password)
-
         Try
             con.Open()
 
@@ -102,6 +103,27 @@ Public Class frmLOGIN
         Catch ex As Exception
             MessageBox.Show($"Error writing to audit trail: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+    End Sub
+
+    Private Sub btnHidePassword_Click(sender As Object, e As EventArgs) Handles btnHidePassword.Click
+        If txtPassword.PasswordChar = "●" Or btnHidePassword.Image Is My.Resources.hide Then
+            txtPassword.PasswordChar = "" ' Set PasswordChar to 0 to show password
+            btnHidePassword.Image = My.Resources.view ' Set an open-eye image (ensure you have the image in your resources)
+        Else
+
+            txtPassword.PasswordChar = "●" ' Hide password with asterisk
+            btnHidePassword.Image = My.Resources.hide ' Set a closed-eye image
+        End If
+    End Sub
+
+    Private Sub lblForgotPassword_Click(sender As Object, e As EventArgs) Handles lblForgotPassword.Click
+        pnlForgotPassword.Visible = True
+        grpLogin.Enabled = False
+    End Sub
+
+    Private Sub lblBack_Click(sender As Object, e As EventArgs) Handles lblBack.Click
+        pnlForgotPassword.Visible = False
+        grpLogin.Enabled = True
     End Sub
 
 
