@@ -1,8 +1,8 @@
--- MariaDB dump 10.19  Distrib 10.4.28-MariaDB, for Win64 (AMD64)
+-- MariaDB dump 10.19  Distrib 10.4.32-MariaDB, for Win64 (AMD64)
 --
 -- Host: localhost    Database: cs_hotel_reservation
 -- ------------------------------------------------------
--- Server version	10.4.28-MariaDB
+-- Server version	10.4.32-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -427,10 +427,12 @@ CREATE TABLE `users` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `role` enum('cashier','admin') NOT NULL DEFAULT 'cashier',
+  `verification_code` varchar(255) DEFAULT NULL,
+  `verification_code_expiry` datetime DEFAULT NULL,
   PRIMARY KEY (`cashier_id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -439,7 +441,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'OkayNoice','3180cc4bbe5b7fffe0fd53d7384eec3f837f5a3d270ac03fdb07282961981437','2024-10-05 11:29:49',1,'','Jhondel Mellomida','2024-10-05 03:04:10','2024-10-05 03:29:49','cashier');
+INSERT INTO `users` VALUES (1,'OkayNoice','3180cc4bbe5b7fffe0fd53d7384eec3f837f5a3d270ac03fdb07282961981437','2024-10-05 11:29:49',1,'','Jhondel Mellomida','2024-10-05 03:04:10','2024-10-05 03:29:49','cashier',NULL,NULL),(2,'test','7b300d9433bdc0636cb5cb5f169ab82d1f917d8dc2e39f82beae37238c02da6d',NULL,1,'kumakalabukab1@gmail.com','test','2024-12-19 04:49:03','2024-12-19 04:49:08','admin','396273','2024-12-19 12:59:08');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -506,4 +508,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-25 22:57:54
+-- Dump completed on 2024-12-19 12:53:48
